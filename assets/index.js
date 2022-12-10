@@ -38,7 +38,8 @@ window.onload = () => {
             if (line === '') {
                 return
             }
-            if (line.match(/[。？！]+/g).length <= 1) {
+            const length = line.match(/[。？！]+/g)?.length ?? 0
+            if (length <= 1) {
                 ps.push(`<p>${line}</p>`)
                 return
             }
