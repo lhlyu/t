@@ -1,0 +1,13 @@
+{
+  "name": "typesetting",
+  "version": "0.0.1",
+  "description": "Text Typesetting",
+  "author": "lhlyu",
+  "scripts": {
+    "fmt": "prettier --write ."
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^2.8.1"
+  }
+}
