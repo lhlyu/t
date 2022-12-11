@@ -8,15 +8,15 @@ const ends = ['.','!','?','。','！','？','\n']
 function splitText(text) {
 
     const lines = []
-    let open = false
+    let open = 0
     let start = 0
     for (let i = 0; i < text.length; i++) {
         const c = text.charAt(i)
         if (opens.includes(c)) {
-            open = true
+            open++
         }
         if (closes.includes(c)) {
-            open = false
+            open--
         }
         if (open) {
             continue
