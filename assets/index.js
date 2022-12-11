@@ -21,10 +21,10 @@ function splitText(text) {
                 open = 0
             }
         }
-        if (open) {
+        if (open && i < text.length - 1) {
             continue
         }
-        if (ends.includes(c)) {
+        if (ends.includes(c) || i === text.length - 1) {
             const t = `<p>${text.slice(start, i+1).trim()}</p>`
             lines.push(t)
             start = i + 1
