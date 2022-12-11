@@ -17,6 +17,9 @@ function splitText(text) {
         }
         if (closes.includes(c)) {
             open--
+            if (open < 0) {
+                open = 0
+            }
         }
         if (open) {
             continue
