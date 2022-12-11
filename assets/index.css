@@ -139,6 +139,35 @@ button:active::before {
 
 }
 
+#container {
+    position: absolute;
+    height: 100%;
+    overflow: auto;
+}
+
+.bts {
+    position: fixed;
+    bottom: 5vw;
+    right: 5vw;
+    list-style-type: none;
+    z-index: 100;
+}
+
+.bts li {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: rgba(255, 79, 126, 0.5);
+    color: #fff;
+    font-size: 12px;
+    margin: 6px 0;
+    cursor: pointer;
+    transition: all 0.4s linear;
+}
+
+.bts li:hover {
+    background-color: #ff79c6;
+}
+
 p {
     text-indent: 2em;
     line-height: 1.6em;
