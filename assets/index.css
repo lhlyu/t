@@ -142,7 +142,6 @@ button:active::before {
 #container {
     position: absolute;
     height: 100%;
-    overflow: auto;
 }
 
 .bts {

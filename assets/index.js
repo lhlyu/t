@@ -3,30 +3,42 @@
 const opens = ['(','[','{','<',"'",'"','（','【','《','『','「', '“', "‘"]
 const closes = [')',']','}','>',"'",'"','）','】','》','』','」', '”', "’"]
 
-const ends = ['.','!','?','。','！','？','\n']
+const ends = ['!','?','。','！','？','\n','　']
 
 function splitText(text) {
 
     const lines = []
     let open = 0
     let start = 0
+    let index = 1
     for (let i = 0; i < text.length; i++) {
+        let use = false
+        let close = false
         const c = text.charAt(i)
         if (opens.includes(c)) {
             open++
+            use = true
         }
-        if (closes.includes(c)) {
+        if (closes.includes(c) && !use) {
             open--
-            if (open < 0) {
+            if (open <= 0) {
                 open = 0
+                close = true
             }
         }
-        if (open && i < text.length - 1) {
+        if (open && i < (text.length - 1)) {
             continue
         }
-        if (ends.includes(c) || i === text.length - 1) {
-            const t = `<p>${text.slice(start, i+1).trim()}</p>`
-            lines.push(t)
+
+        if (close || ends.includes(c) || i === text.length - 1) {
+            if (ends.includes(text.charAt(i + 1))) {
+                i ++
+            }
+            const s = text.slice(start, i+1).trim()
+            if (s !== '') {
+                const t = `<p>${s}</p>`
+                lines.push(t)
+            }
             start = i + 1
         }
     }
